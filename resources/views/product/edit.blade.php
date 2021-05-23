@@ -23,7 +23,7 @@
                     </div>
                 <div class="form-group">
                     <label>Category</label>
-                        <select name="parent_category_id" class="form-control" multiple>
+                        <select name="category_id[]" class="form-control" multiple>
                             @foreach ($category as $cat)
                                 <option value="{{$cat->id}}">{{$cat->name}}</option>
                             @endforeach
@@ -35,3 +35,5 @@
     </div>
 
 @endsection
+
+{{--  {{dd($errors->all())}}/  --}}

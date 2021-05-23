@@ -44,14 +44,14 @@ class ProductController extends Controller
             $response=Product::create([
                 'name' => $request->name,
                 'price' =>$request->price,
-                'category_id' =>json_encode($request->parent_category_id)
+                'category_id' =>json_encode($request->category_id)
             ]);
             
             if(!empty($response)){
-                return redirect()->route('subcategory.index')->with('success','Data stored successfully');
+                return redirect()->route('product.index')->with('success','Data stored successfully');
             }
             else{
-                return redirect()->route('subcategory.index')->with('success','Oops something wents wrong');
+                return redirect()->route('product.index')->with('success','Oops something wents wrong');
             }
            
             
@@ -94,13 +94,12 @@ class ProductController extends Controller
     public function update(UpdateRequest $request,$id)
     {
         try{   
-             
             $response=Product::where('id','=',$id)->update($request->validated());
             if(!empty($response)){
-                return redirect()->route('category.index')->with('success','Data updated successfully');
+                return redirect()->route('product.index')->with('success','Data updated successfully');
             }
             else{
-                return redirect()->route('category.index')->with('success','Oops something wents wrong');
+                return redirect()->route('product.index')->with('success','Oops something wents wrong');
             }
            
             
