@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::name('category')->group(function () {
+Route::post('/category/store',[CategoryController::class,'store']);
+Route::get('/test/index',[TestController::class,'index']);
+// Route::get('/category/index',[CategoryController::class,'index']);
+// })
